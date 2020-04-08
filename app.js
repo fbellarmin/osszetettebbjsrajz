@@ -28,3 +28,20 @@ drawHexagon(261, 230);
 context.fillStyle = 'orange';
 context.fill();
 
+var canvasWidth = canvas.width;
+var canvasHeight = canvas.height;
+
+function drawCheckeredPattern(row, col) {
+    for (var rowCounter = 0; rowCounter < row; rowCounter++) {
+        for (var colCounter = 0; colCounter < col; colCounter++) {
+            if (colCounter % 2 === rowCounter % 2) {
+                context.fillStyle = 'rgb(255,255,255, 50%)';
+            } else {
+                context.fillStyle = 'rgb(0,0,0, 50%)';
+            }
+            context.fillRect(colCounter * canvasWidth / col, rowCounter * canvasHeight / row, canvasWidth / col, canvasHeight / row);
+        }
+    }
+}
+
+drawCheckeredPattern(8, 8);
